@@ -20,12 +20,6 @@ public class BoardService {
         return boardRepository.save(boardPOSTDto.toEntity()).getSequence();
     }
 
-    //게시판 리스트 출력
-//    @Transactional
-//    public List<Board> findAll() {
-//        return boardRepository.findAll();
-//    }
-
     @Transactional
     public List<BoardPOSTDto> getBoardList() {
         List<Board> boardList = boardRepository.findAll();
