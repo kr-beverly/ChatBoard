@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${detail.title}">제목</title>
+</head>
+<body>
+    <h1>글번호 :
+        <a th:text="${detail.sequence}"/>
+    </h1>
+    <h4> 제목 :
+        <a th:text="${detail.title}"/>
+    </h4>
+    <p>본문 :
+        <a th:text="${detail.detail}"/>
+    </p>
+</body>
+</html>

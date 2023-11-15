@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <title>게시글 리스트</title>
+</head>
+<body>
+    <h1>게시글 리스트</h1>
+    <div class="container">
+        <table class="table">
+            <thead class="thead-light">
+            <tr class="text-center">
+                <th scope="col">번호</th>
+                <th scope="col">제목</th>
+                <th scope="col">작성자</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!--each는 반복문 이용해 뿌려주는 역할-->
+            <tr class="text-center" th:each="post : ${boardList}" th:if="${#lists.size(post)} > 0">
+                <th scope="row">
+                    <span th:text="${post.sequence}"></span>
+                </th>
+                <td>
+                    <a th:href="@{/board/detail(id=${post.sequence})}">
+<!--                    <a th:href="@{'/board/detail/' + ${post.sequence}}">-->
+                        <span th:text="${post.title}"></span>
+                    </a>
+                </td>
+                <td>
+                    <span th:text="${post.user_id}"></span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="row">
+            <div class="col-auto mr-auto">
+                <div class="col-auto">
+                    <button onclick=location.href='/board/write'>글쓰기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

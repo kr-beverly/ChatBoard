@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <title>게시글 작성</title>
+</head>
+<body>
+<script>
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                document.getElementById('preview').src = e.target.result;
+            };
+            reader.readAsDataURL(input.files[0]);
+        } else {
+            document.getElementById('preview').src = "";
+        }
+    }
+</script>
+ <h1>글쓰기</h1>
+ <form action="/board/write" method="post">
+     <div class="user_id"> <!--임시-->
+         아이디<input type="text" name="user_id">
+     </div>
+     <div class="title">
+         <p>
+             제목<input type="text" name="title" placeholder="제목을 입력하시오.">
+         </p>
+     </div>
+     <div class="detail">
+         <p>본문</p>
+         <label>
+             <textarea placeholder="내용을 입력하시오." name="detail"></textarea>
+         </label>
+     </div>
+     <img id="preview"/> <!--사진 미리보기-->
+     <div class = "etc"> <!--사진-->
+         <p>
+             <input type="file" name="etc" multiple="multiple" onchange="readURL(this);">
+         </p>
+     </div>
+     <div class="bottom-btn">
+         <input type="reset" name="reset">
+         &nbsp;
+         <button type="submit" name="postbtn">작성</button>
+     </div>
+ </form>
+</body>
+</html>
